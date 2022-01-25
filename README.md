@@ -9,7 +9,7 @@ This widget allows you to upload images, change image labels, and change colors 
 2. Go to your *Features* > *Form Widgets* > *Create New Widget*
 3. Add following parameters:
 ![image](https://user-images.githubusercontent.com/24431825/150968642-4b80585e-6fe9-46f0-a405-d91130b0369b.png)
-4. Add the new widget to a from
+4. Add the new widget to a form
 
 
 ## Contribute
