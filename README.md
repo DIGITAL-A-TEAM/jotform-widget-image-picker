@@ -14,7 +14,7 @@ This widget allows you to upload images, change image labels, and change colors 
 
 ## Contribute
 You can contribute with GitHub via Pull Request on this project and we will review and add you changes.
-For more information, please read the [LICENCE.md](https://github.com/Digital-A-TEAM/jotform-widget-image-picker/blob/main/LICENCE.md)
+For more information, please read the [LICENCE](https://github.com/Digital-A-TEAM/jotform-widget-image-picker/blob/main/LICENSE)
 
 ## Issues and Errors
 If you have any problems, errors or feature request, tell  us through the [Issues](https://github.com/Digital-A-TEAM/jotform-widget-image-picker/issues). 
