@@ -40,7 +40,7 @@ JFCustomWidget.subscribe("ready", function () {
             img = images[i];
         }
         else {
-            img = '/asset/default.png';
+            img = './asset/default.png';
         }
         text += ' \
                            <div class="images"> \
