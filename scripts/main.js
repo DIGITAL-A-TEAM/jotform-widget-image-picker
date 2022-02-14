@@ -68,5 +68,6 @@ JFCustomWidget.subscribe("ready", function () {
             value: getCheckedValues()
         }
         JFCustomWidget.sendSubmit(msg);
+        console.log(msg);
     });
 });
