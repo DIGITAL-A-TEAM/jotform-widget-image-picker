@@ -11,18 +11,12 @@ JFCustomWidget.subscribe("ready", function () {
     }
 
     function valueClick(isRadio) {       
-        if (isRadio) {
-            let msg = {
-                valid: true,
-                value: getCheckedValues()
-            }
-            JFCustomWidget.sendSubmit(msg);     
-            console.log(msg);       
+        let msg = {
+            valid: true,
+            value: getCheckedValues()
         }
-        else {        
-            JFCustomWidget.sendData({ valid: true, value: getCheckedValues() });
-        }
-       
+        console.log(msg);       
+        JFCustomWidget.sendSubmit(msg);     
     }
 
     /* Init Jotform */
