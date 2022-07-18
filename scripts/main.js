@@ -72,13 +72,15 @@ JFCustomWidget.subscribe("ready", function () {
         // JFCustomWidget.sendSubmit(msg);
         let checkedValues = '';
         let itms = document.querySelectorAll('input:checked');
-        let obj = [];
+        let data = [];
         itms.forEach(itm => {
-            let msg = {
-                valid: true,
-                value: itm.value
-            }
-            JFCustomWidget.sendData(msg); 
-        });        
+            data.push('{"value" : ' + itm.value + '}');
+            
+        });   
+        let msg = {
+            valid: true,
+            data
+        }                
+        JFCustomWidget.sendData(msg); 
     });
 });
