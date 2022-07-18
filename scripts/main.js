@@ -7,8 +7,7 @@ JFCustomWidget.subscribe("ready", function () {
             obj.push(itm.value);
         });
         console.log(obj);
-        console.log(JSON.stringify([obj]));
-        return JSON.stringify([obj]);
+        return obj
     }
 
     function valueClick(isRadio) {       
@@ -17,11 +16,13 @@ JFCustomWidget.subscribe("ready", function () {
                 valid: true,
                 value: getCheckedValues()
             }
-            JFCustomWidget.sendSubmit(msg);            
+            JFCustomWidget.sendSubmit(msg);     
+            console.log(msg);       
         }
         else {        
             JFCustomWidget.sendData({ valid: true, value: getCheckedValues() });
         }
+       
     }
 
     /* Init Jotform */
