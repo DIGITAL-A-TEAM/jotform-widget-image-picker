@@ -1,6 +1,5 @@
 JFCustomWidget.subscribe("ready", function () {
-
-    JFCustomWidget.replaceWidget(control_checkbox);
+    
     function getCheckedValues() {
         let checkedValues = '';
         let itms = document.querySelectorAll('input:checked');
