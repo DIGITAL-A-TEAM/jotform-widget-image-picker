@@ -15,8 +15,8 @@ JFCustomWidget.subscribe("ready", function () {
             valid: true,
             value: getCheckedValues()
         }
-        console.log(msg);       
-        JFCustomWidget.sendSubmit(msg);     
+        console.log(msg);     
+        JFCustomWidget.sendData(msg); 
     }
 
     /* Init Jotform */
