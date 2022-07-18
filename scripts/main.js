@@ -64,23 +64,11 @@ JFCustomWidget.subscribe("ready", function () {
     }
     // document.onclick = () => {console.log('test')};
     JFCustomWidget.subscribe("submit", function () {
-        // let msg = {
-        //     valid: true,
-        //     value: getCheckedValues()
-        // }
-        // console.log(msg);  
-        // JFCustomWidget.sendSubmit(msg);
-        let checkedValues = '';
-        let itms = document.querySelectorAll('input:checked');
-        let data = [];
-        itms.forEach(itm => {
-            data.push('{"value" : ' + itm.value + '}');
-            
-        });   
         let msg = {
             valid: true,
-            data
-        }                
-        JFCustomWidget.sendData(msg); 
+            value: getCheckedValues()
+        }
+        console.log(msg);  
+        JFCustomWidget.sendSubmit([msg, msg, msg]);
     });
 });
