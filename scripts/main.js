@@ -6,7 +6,6 @@ JFCustomWidget.subscribe("ready", function () {
         itms.forEach(itm => {
             obj.push(itm.value);
         });
-        console.log(obj);
         return obj
     }
 
@@ -68,6 +67,7 @@ JFCustomWidget.subscribe("ready", function () {
             valid: true,
             value: getCheckedValues()
         }
+        console.log(msg);  
         JFCustomWidget.sendSubmit(msg);
     });
 });
