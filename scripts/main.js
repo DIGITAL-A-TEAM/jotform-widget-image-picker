@@ -6,6 +6,7 @@ JFCustomWidget.subscribe("ready", function () {
         itms.forEach(itm => {
             obj.push(itm.value);
         });
+        console.log(obj);
         console.log(JSON.stringify([obj]));
         return JSON.stringify([obj]);
     }
