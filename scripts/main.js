@@ -2,10 +2,11 @@ JFCustomWidget.subscribe("ready", function () {
     function getCheckedValues() {
         let checkedValues = '';
         let itms = document.querySelectorAll('input:checked');
-        let obj = {};
+        let obj = [];
         itms.forEach(itm => {
-            obj[itm.id] = itm.value;
+            obj.push(itm.value);
         });
+        console.log(JSON.stringify([obj]));
         return JSON.stringify([obj]);
     }
 
