@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v2.1.0
+      uses: actions/checkout@latest
       with:
         fetch-depth: 2
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@latest
       with:
         ftp-server: ${{ secrets.FTP_SERVER }}/dat-image-picker/dev/
         ftp-username: ${{ secrets.FTP_USER }}
