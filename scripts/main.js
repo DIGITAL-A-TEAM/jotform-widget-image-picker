@@ -56,6 +56,8 @@ JFCustomWidget.subscribe("ready", function () {
                            </div>  \
                            </div>';
     }
+    console.log(document.body.clientHeight, document.body.scrollHeight, document.body.offsetHeight)
+    JFCustomWidget.requestFrameResize({width: document.body.clientWidth, height: document.body.clientHeight})
 
     document.getElementById('items').innerHTML = text;
 
