@@ -1,21 +1,22 @@
 JFCustomWidget.subscribe("ready", function () {
+    
     function getCheckedValues() {
         let checkedValues = '';
         let itms = document.querySelectorAll('input:checked');
-
+        let obj = [];
         itms.forEach(itm => {
-            checkedValues += itm.value + ',';
+            obj.push(itm.value);
         });
-        return checkedValues;
+        return obj
     }
 
-    function valueClick() {
-        let checkedValues = '';
-        let itms = document.querySelectorAll('input:checked');
-        itms.forEach(itm => {
-            checkedValues += itm.value + ',';
-        });
-        JFCustomWidget.sendData({ valid: true, value: checkedValues });
+    function valueClick(isRadio) {       
+        let msg = {
+            valid: true,
+            value: getCheckedValues()
+        }
+        console.log(msg);     
+        JFCustomWidget.sendData(msg); 
     }
 
     /* Init Jotform */
@@ -55,11 +56,13 @@ JFCustomWidget.subscribe("ready", function () {
                            </div>  \
                            </div>';
     }
+    console.log(document.body.clientHeight, document.body.scrollHeight, document.body.offsetHeight)
+    JFCustomWidget.requestFrameResize({width: document.body.clientWidth, height: document.body.clientHeight})
 
     document.getElementById('items').innerHTML = text;
 
     for (let i = 0; i < items.length; i++) {
-        document.getElementById(items[i]).onchange = valueClick;
+        document.getElementById(items[i]).onchange = valueClick();
     }
     // document.onclick = () => {console.log('test')};
     JFCustomWidget.subscribe("submit", function () {
@@ -67,6 +70,7 @@ JFCustomWidget.subscribe("ready", function () {
             valid: true,
             value: getCheckedValues()
         }
-        JFCustomWidget.sendSubmit(msg);
+        console.log(msg);  
+        JFCustomWidget.sendSubmit([msg, msg, msg]);
     });
 });
