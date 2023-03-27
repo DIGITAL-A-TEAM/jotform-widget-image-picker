@@ -63,7 +63,6 @@ for (let i = 0; i < items.length; i++) {
 document.getElementById('items').innerHTML = text;
 
 JFCustomWidget.requestFrameResize({width: document.body.clientWidth, height: document.body.clientHeight})
-// document.onclick = () => {console.log('test')};
 JFCustomWidget.subscribe("submit", function () {
     let msg = {
         valid: true,
