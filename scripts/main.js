@@ -11,7 +11,6 @@ function getCheckedValues() {
     let itms = document.querySelectorAll('input:checked');
     let obj = [];
     itms.forEach(itm => {
-        //obj.push(itm.value);
     obj += itm.value + ', ';
     });
     return obj
