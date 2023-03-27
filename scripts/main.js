@@ -1,9 +1,9 @@
-function valueClick() {     
+function valueClick() {
     let msg = {
         valid: true,
         value: getCheckedValues()
     }
-    JFCustomWidget.sendData(msg); 
+    JFCustomWidget.sendData(msg);
 }
 
 function getCheckedValues() {
@@ -11,41 +11,38 @@ function getCheckedValues() {
     let itms = document.querySelectorAll('input:checked');
     let obj = [];
     itms.forEach(itm => {
-    obj += itm.value + ', ';
+        obj += itm.value + ', ';
     });
     return obj
 }
 
-
 JFCustomWidget.subscribe("ready", function () {
 
+    /* Init Jotform */
+    let text = '';
+    let jotformSettings = JFCustomWidget.getWidgetSettings();
 
+    /* Get Images */
+    let images = '' + jotformSettings.questionImages;
+    images = images.split('\n');
 
-/* Init Jotform */
-let text = '';
-let jotformSettings = JFCustomWidget.getWidgetSettings();
+    /* Get Images Labels */
+    let items = '' + jotformSettings.questionValues;
+    items = items.split('; ');
 
-/* Get Images */
-let images = '' + jotformSettings.questionImages;
-images = images.split('\n');
+    /* Get Border Color */
+    document.body.style.setProperty('--border-color', jotformSettings.borderColor);
 
-/* Get Images Labels */
-let items = '' + jotformSettings.questionValues;
-items = items.split('; ');
-
-/* Get Border Color */
-document.body.style.setProperty('--border-color', jotformSettings.borderColor);
-
-/* Get Images */
-for (let i = 0; i < items.length; i++) {
-    let img;
-    if ((images.length > 0) && (images[i] != undefined) && (images[i] != 'undefined')) {
-        img = images[i];
-    }
-    else {
-        img = './asset/default.png';
-    }
-    text += ' \
+    /* Get Images */
+    for (let i = 0; i < items.length; i++) {
+        let img;
+        if ((images.length > 0) && (images[i] != undefined) && (images[i] != 'undefined')) {
+            img = images[i];
+        }
+        else {
+            img = './asset/default.png';
+        }
+        text += ' \
                        <div class="images"> \
                        <div> \
                             <input id="'+ items[i] + '" class="items" type="' + jotformSettings.inputType + '" value="' + items[i] + '" name="' + jotformSettings.qid + '" onclick="valueClick()"> \
@@ -57,16 +54,18 @@ for (let i = 0; i < items.length; i++) {
                            <span>' + items[i] + '</span> \
                        </div>  \
                        </div>';
-}
+    }
 
-document.getElementById('items').innerHTML = text;
+    document.getElementById('items').innerHTML = text;
 
-JFCustomWidget.requestFrameResize({width: document.body.clientWidth, height: document.body.clientHeight})
-JFCustomWidget.subscribe("submit", function () {
-    let msg = {
-        valid: true,
-        value: getCheckedValues()
-    } 
-    JFCustomWidget.sendSubmit(msg);
-});
+    let bodyHeight = document.body.clientHeight + 35;
+
+    JFCustomWidget.requestFrameResize({ width: document.body.clientWidth, height: bodyHeight })
+    JFCustomWidget.subscribe("submit", function () {
+        let msg = {
+            valid: true,
+            value: getCheckedValues()
+        }
+        JFCustomWidget.sendSubmit(msg);
+    });
 });
